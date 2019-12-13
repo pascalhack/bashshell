@@ -1,8 +1,6 @@
 name: 测试
 # This workflow is triggered on pushes to the repository.
-on:
-  schedule:
-    - cron:  '0 * * * *'
+on push
 
 jobs:
   build:
