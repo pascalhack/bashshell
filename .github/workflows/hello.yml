@@ -3,7 +3,7 @@ name: 测试
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
     - name: Setup tmate session
