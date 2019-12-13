@@ -1,4 +1,4 @@
-name: 测试1111
+name: 测试
 # This workflow is triggered on pushes to the repository.
 on: [push]
 jobs:
@@ -25,7 +25,6 @@ jobs:
         sudo -E apt-get -qq clean
         curl -fsSL https://raw.githubusercontent.com/P3TERX/dotfiles/master/.bashrc >> ~/.bashrc
         sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-    steps:
     - uses: actions/checkout@v1
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v1
