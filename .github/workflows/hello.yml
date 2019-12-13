@@ -1,12 +1,10 @@
 name: 测试
 # This workflow is triggered on pushes to the repository.
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
-      - uses: actions/checkout@v1
-      # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action
+    - uses: actions/checkout@v1
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v1
