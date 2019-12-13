@@ -1,4 +1,4 @@
-name: Greet Everyone
+name: 测试
 # This workflow is triggered on pushes to the repository.
 on:
   schedule:
