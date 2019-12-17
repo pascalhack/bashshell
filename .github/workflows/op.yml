@@ -4,8 +4,7 @@ name: 编译openwrt固件
 on: 
   release:
     types: [published]
-
-   push:
+    push:
     branches: 
       - master
 
