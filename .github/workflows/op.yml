@@ -4,15 +4,15 @@ name: 编译openwrt固件
 on: 
   release:
     types: [published]
-    push:
-    branches: 
-      - master
+  push:
+   branches: 
+     - master
 
   schedule:
-    - cron: 0 8 * * 5
+   - cron: 0 8 * * 5
 
   watch:
-    types: [started]
+   types: [started]
 
 jobs:
   build:
@@ -65,7 +65,7 @@ jobs:
 
     - name: 调用模板配置环境中。
       env:
-        CONFIG_FILE: 'x86.config'
+        CONFIG_FILE: 'x64.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
