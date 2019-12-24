@@ -6,6 +6,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v1
-     run: |
-       ip addr
+      uses: mxschmitt/action-tmate@v1      
+    - name: 打印ip
+      env:
+          DEBIAN_FRONTEND: noninteractive
+          run: |
+           ip addr
