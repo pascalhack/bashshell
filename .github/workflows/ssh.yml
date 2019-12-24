@@ -8,7 +8,5 @@ jobs:
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v1      
     - name: 打印ip
-      env:
-          DEBIAN_FRONTEND: noninteractive
-          run: |
+      run: |
            ip addr
