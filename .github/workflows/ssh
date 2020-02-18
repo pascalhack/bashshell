@@ -1,4 +1,4 @@
-name: 去你妹的github
+name: ssh
 on: [push]
 jobs:
   build:
