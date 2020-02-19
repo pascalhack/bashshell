@@ -7,7 +7,6 @@ jobs:
     - name: 打印ip
       run: |
            ip addr
-    - uses: actions/checkout@v1
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v1      
+    - name: SSH connection to Actions
+      uses: p3terx/debugger-action@master  
 
