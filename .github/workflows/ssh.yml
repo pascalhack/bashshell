@@ -4,9 +4,9 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - name: 打印ip
-      run: |
-           ip addr
+ #   - name: 打印ip
+  #    run: |
+   #        ip addr
     - name: SSH connection to Actions
       uses: p3terx/debugger-action@master  
 
