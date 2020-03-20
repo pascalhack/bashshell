@@ -8,12 +8,13 @@ jobs:
  #   - name: 打印ip
   #    run: |
    #        ip addr
-     - name: Download dl
-    env: 
+    - name: Download dl
+      env: 
        DL_URL: https://image.moeclub.org/GoogleDrive/
        DL_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
        DL_NAME: dl.tar.gz
-       run: | 
+       REPO_NAME: openwrt 
+      run: | 
         wget  $DL_URL/$DL_URL1
         mv  $DL_URL1 $DL_NAME
         mv $DL_NAME $REPO_NAME/$DL_NAME
