@@ -8,6 +8,17 @@ jobs:
  #   - name: 打印ip
   #    run: |
    #        ip addr
-    - name: SSH connection to Actions
-      uses: p3terx/debugger-action@master  
+    #- name: SSH connection to Actions
+     # uses: p3terx/debugger-action@master  
+      - name: Upload Release Asset
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.RELEASES_TOKEN }}
+          file: ${{ env.FIRMWARE }}/* # https://www.npmjs.com/package/glob
+          # asset_name: ${{ env.FILE_NAME }}-${{ github.ref }}.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
 
+      - name: WeChat notification
+        run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}编译完成
