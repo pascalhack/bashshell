@@ -17,7 +17,7 @@ jobs:
       run: | 
         mkdir $REPO_NAME
         wget  $DL_URL/$DL_URL1
-        mv  $DL_URL1 $REPO_NAME/DL_NAME
+        mv  $DL_URL1 $REPO_NAME/$DL_NAME
         tar -xzvf $DL_NAME
         sudo rm -rf $DL_NAME
         cd $REPO_NAME
