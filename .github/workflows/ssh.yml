@@ -8,17 +8,18 @@ jobs:
  #   - name: 打印ip
   #    run: |
    #        ip addr
+     - name: Download dl
+    env: 
+       DL_URL: https://image.moeclub.org/GoogleDrive/
+       DL_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
+       DL_NAME: dl.tar.gz
+       run: | 
+        wget  $DL_URL/$DL_URL1
+        mv  $DL_URL1 $DL_NAME
+        mv $DL_NAME $REPO_NAME/$DL_NAME
+        tar -xzvf $DL_NAME
+        sudo rm -rf $DL_NAME
+        ls -ll
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
-      - name: Upload Release Asset
-        uses: svenstaro/upload-release-action@v1-release
-        with:
-          repo_token: ${{ secrets.RELEASES_TOKEN }}
-          file: ${{ env.FIRMWARE }}/* # https://www.npmjs.com/package/glob
-          # asset_name: ${{ env.FILE_NAME }}-${{ github.ref }}.zip
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
 
-      - name: WeChat notification
-        run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}编译完成
