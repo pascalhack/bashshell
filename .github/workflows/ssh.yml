@@ -16,6 +16,7 @@ jobs:
        REPO_NAME: openwrt 
       run: | 
         wget  $DL_URL/$DL_URL1
+        mkdir $REPO_NAME
         [ -e $DL_URL1 ] && mv $DL_URL1 $REPO_NAME/$DL_NAME
         tar -xzvf $DL_NAME
         sudo rm -rf $DL_NAME
