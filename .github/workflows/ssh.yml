@@ -8,11 +8,11 @@ jobs:
  #   - name: 打印ip
   #    run: |
    #        ip addr
-    - name: Download dl
+    - name: Download staging_dir
       env: 
        DL_URL: https://image.moeclub.org/GoogleDrive/
-       DL_URL1: 1o0XRa9N7dwBAiQMOr9AATyuY54BfaDsQ
-       DL_NAME: build_dir.tar.gz
+       DL_URL1: 1YUsSrNBXq0fDXDnqFsG70Am75FREL32F
+       DL_NAME: staging_dir.tar.gz
        REPO_NAME: openwrt 
       run: | 
         mkdir $REPO_NAME && cd $REPO_NAME
