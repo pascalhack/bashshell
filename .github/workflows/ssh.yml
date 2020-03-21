@@ -2,8 +2,7 @@ name: bashshell
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    
+    runs-on: ubuntu-18.04  
     steps:
     - name: Download staging_dir
       env: 
@@ -18,8 +17,8 @@ jobs:
         /mnt/$REPO_NAME/dl \
         /mnt/$REPO_NAME/feeds \
         /mnt/$REPO_NAME/staging_dir
-        cd /mnt/$REPO_NAME  
-        ls -ll
-        df -h
+           cd /mnt/$REPO_NAME  
+          ls -ll
+          df -h
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
