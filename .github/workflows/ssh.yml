@@ -18,13 +18,7 @@ jobs:
         /mnt/$REPO_NAME/dl \
         /mnt/$REPO_NAME/feeds \
         /mnt/$REPO_NAME/staging_dir
-        ln -s /mnt/$REPO_NAME/bin ./bin
-        mkdir -p ./build_dir/host 
-        ln -s /mnt/openwrt/build_dir/host ./build_dir/host
-        ln -s /mnt/openwrt/build_dir/hostpkg ./build_dir/hostpkg
-        ln -s /mnt/openwrt/dl ./dl
-        ln -s /mnt/openwrt/feeds ./feeds
-        ln -s /mnt/openwrt/staging_dir ./staging_dir
+        cd /mnt/$REPO_NAME  
         ls -ll
         df -h
     #- name: SSH connection to Actions
