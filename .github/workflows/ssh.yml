@@ -11,8 +11,8 @@ jobs:
     - name: Download dl
       env: 
        DL_URL: https://image.moeclub.org/GoogleDrive/
-       DL_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
-       DL_NAME: dl.tar.gz
+       DL_URL1: 1o0XRa9N7dwBAiQMOr9AATyuY54BfaDsQ
+       DL_NAME: build_dir.tar.gz
        REPO_NAME: openwrt 
       run: | 
         mkdir $REPO_NAME && cd $REPO_NAME
@@ -20,7 +20,7 @@ jobs:
         mv $DL_URL1 $DL_NAME
         tar -xzvf $DL_NAME
         sudo rm -rf $DL_NAME
-        ls -ll
+        ls -la
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
 
