@@ -5,10 +5,29 @@ jobs:
     runs-on: ubuntu-18.04
     
     steps:
-    - name: 打印ip
-      run: |
-       df -h
-       ls -la
+    - name: Download staging_dir
+      env: 
+       DL_URL: http://drive.google.xggcp.tk/
+       DL_URL1: build_dir.tar.gz
+       DL_NAME: build_dir.tar.gz
+       REPO_NAME: openwrt 
+       run: | 
+        sudo mkdir -p -m 777 /mnt/$REPO_NAME/bin \
+        /mnt/$REPO_NAME/build_dir/host \
+        /mnt/$REPO_NAME/build_dir/hostpkg \
+        /mnt/$REPO_NAME/dl \
+        /mnt/$REPO_NAME/feeds \
+        /mnt/$REPO_NAME/staging_dir
+        ln -s /mnt/$REPO_NAME/bin ./bin
+        mkdir -p ./build_dir/host 
+        ln -s /mnt/openwrt/build_dir/host ./build_dir/host
+        mkdir -p ./build_dir/host 
+        ln -s /mnt/openwrt/build_dir/hostpkg ./build_dir/hostpkg
+        ln -s /mnt/openwrt/dl ./dl
+        ln -s /mnt/openwrt/feeds ./feeds
+        ln -s /mnt/openwrt/staging_dir ./staging_dir
+        ls -la
+        df -h
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
 
