@@ -8,19 +8,8 @@ jobs:
  #   - name: 打印ip
   #    run: |
    #        ip addr
-    - name: Download staging_dir
-      env: 
-       DL_URL: https://shiny-tooth-ea87.lintelstm26107735.workers.dev/
-       DL_URL1: build_dir.tar.gz
-       DL_NAME: staging_dir.tar.gz
-       REPO_NAME: openwrt 
-      run: | 
-        mkdir $REPO_NAME && cd $REPO_NAME
-        wget  $DL_URL/$DL_URL1
-        mv $DL_URL1 $DL_NAME
-        tar -xzvf $DL_NAME
-        sudo rm -rf $DL_NAME
-        ls -la
+        df -h
+         ls -la
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
 
