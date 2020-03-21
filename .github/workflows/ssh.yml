@@ -5,11 +5,10 @@ jobs:
     runs-on: ubuntu-18.04
     
     steps:
- #   - name: 打印ip
-  #    run: |
-   #        ip addr
-        df -h
-         ls -la
+    - name: 打印ip
+      run: |
+       df -h
+       ls -la
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
 
