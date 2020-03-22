@@ -4,21 +4,22 @@ jobs:
   build:
     runs-on: ubuntu-18.04  
     steps:
-      - name: Download staging_dir
-        env: 
-         DL_URL: http://drive.google.xggcp.tk/
-         DL_URL1: build_dir.tar.gz
-         DL_NAME: build_dir.tar.gz
-         REPO_NAME: openwrt 
-        run: | 
-         sudo mkdir -p -m 777 /mnt/$REPO_NAME/bin \
-         /mnt/$REPO_NAME/build_dir/host \
-         /mnt/$REPO_NAME/build_dir/hostpkg \
-         /mnt/$REPO_NAME/dl \
-         /mnt/$REPO_NAME/feeds \
-         /mnt/$REPO_NAME/staging_dir
-           cd /mnt/$REPO_NAME  
+    - name: download dl
+      env: 
+       REPO_URL: https://image.moeclub.org/GoogleDrive/
+       REPO_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
+       REPO_NAME: dl.tar.gz
+      run: | 
+        wget  $REPO_URL/$REPO_URL1
+        mv  $REPO_URL1 $REPO_NAME
+        tar -xzvf $REPO_NAME
+        sudo rm -rf $REPO_NAME 
           ls -ll
           df -h
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: dl
+        path: dl      
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
