@@ -4,22 +4,27 @@ jobs:
   build:
     runs-on: ubuntu-18.04  
     steps:
+    - name: Clone source code
+      env: 
+        REPO_URL: https://github.com/coolsnowwolf/lede
+        REPO_BRANCH: master
+      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
     - name: download dl
       env: 
-       REPO_URL: https://image.moeclub.org/GoogleDrive/
-       REPO_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
-       REPO_NAME: dl.tar.gz
+          DL_URL: https://image.moeclub.org/GoogleDrive/
+          DL_URL1: 1VZHn2AJ3iXpJAYsDwWAPL6m_CjMAovsb
+          DL_NAME: dl.tar.gz
       run: | 
-        wget  $REPO_URL/$REPO_URL1
-        mv  $REPO_URL1 $REPO_NAME
-        tar -xzvf $REPO_NAME
-        sudo rm -rf $REPO_NAME 
+        wget  $DL_URL/$DL_URL1
+        mv  $DL_URL1 $DL_NAME
+        tar -xzvf $DL_NAME
+        sudo rm -rf $DL_NAME 
           ls -ll
           df -h
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: dl
-        path: dl      
+        path: dl && openwrt
     #- name: SSH connection to Actions
      # uses: p3terx/debugger-action@master  
